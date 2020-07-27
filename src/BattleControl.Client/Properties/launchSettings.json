@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "BattleControl.Client": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

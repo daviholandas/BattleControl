@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>dotnet-BattleControl.Client-AAA0B9FE-ADAB-40E3-8797-8EDC9F14FC80</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BattleControl.Core\BattleControl.Core.csproj" />
+  </ItemGroup>
+</Project>
