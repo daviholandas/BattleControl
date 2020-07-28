@@ -10,7 +10,7 @@ namespace BattleControl.Core.Models
         {
             Id = new Guid();
         }
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
 
     }
 }

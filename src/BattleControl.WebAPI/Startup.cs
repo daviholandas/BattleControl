@@ -29,12 +29,13 @@ namespace BattleControl.WebAPI
         {
             services.AddControllers();
             services.ConfigVersioningApi();
+            services.IoC();
             
             services.AddCors(options => options.AddPolicy("CorsPolicy",
                 builder =>
                 {
                     builder.AllowAnyMethod().AllowAnyHeader()
-                        .WithOrigins("http://127.0.0.1:4201")
+                        .WithOrigins("http://127.0.0.1:4200")
                         .AllowCredentials();
                 }));
             services.AddSignalR();
