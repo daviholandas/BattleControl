@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using BattleControl.Client.Services;
 using BattleControl.Core.Dtos;
 using BattleControl.Core.Models;
 using Microsoft.AspNetCore.SignalR.Client;
@@ -16,9 +17,11 @@ namespace BattleControl.Client
         private readonly ILogger<Worker> _logger;
         private readonly HubConnection _hubConnection;
         private readonly ClientMachineInfo _clientMachineInfo;
+        private ICommandService _commandService;
 
-        public Worker(ILogger<Worker> logger)
+        public Worker(ILogger<Worker> logger, ICommandService commandService)
         {
+            _commandService = commandService;
             _clientMachineInfo = new ClientMachineInfo();
             _logger = logger;
             _hubConnection = new HubConnectionBuilder()
@@ -52,7 +55,7 @@ namespace BattleControl.Client
             _hubConnection.On<CommandDto>("SendCommand", async command =>
             {
                 _logger.LogInformation($"{command.Argument}");
-                await _hubConnection.InvokeAsync("Receive", _clientMachineInfo.Name);
+                await _hubConnection.InvokeAsync("Receive", await _commandService.ExecuteCommand(command));
             });
            
             await Task.CompletedTask;

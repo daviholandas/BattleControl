@@ -8,6 +8,6 @@ namespace BattleControl.Client.Services
 {
     public interface ICommandService
     {
-        Task<IEnumerable<string>> ExecuteCommand(CommandDto command);
+        Task<string> ExecuteCommand(CommandDto command);
     }
 }
