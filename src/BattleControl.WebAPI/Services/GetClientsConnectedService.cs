@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace BattleControl.WebAPI.Services
 {
@@ -11,7 +8,7 @@ namespace BattleControl.WebAPI.Services
 
         public void AddIdClientToList(string clientContextId)
         {
-            _clientsId.Add(new {id = clientContextId});
+            _clientsId.Add(new { id = clientContextId });
         }
 
         public IEnumerable<dynamic> ListClientsConnectionId()

@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace BattleControl.WebAPI.Services
 {
     public interface IGetClientsConnectedService
     {
         IEnumerable<dynamic> ListClientsConnectionId();
+
         void AddIdClientToList(string clientContextId);
     }
 }

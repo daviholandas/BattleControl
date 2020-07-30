@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BattleControl.Core.Models
 {
@@ -10,7 +8,7 @@ namespace BattleControl.Core.Models
         {
             Id = new Guid();
         }
-        public Guid Id { get; set; }
 
+        public Guid Id { get; set; }
     }
 }

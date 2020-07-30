@@ -1,9 +1,7 @@
 ﻿using BattleControl.Core.Dtos;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 using System.Text;
@@ -39,15 +37,12 @@ namespace BattleControl.Client.Services
                     _logger.LogInformation(stringBuilder.ToString());
                     return stringBuilder.ToString();
                 }
-                    
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 _logger.LogError(e.Message);
                 return e.Message;
             }
-            
-
         }
     }
 }

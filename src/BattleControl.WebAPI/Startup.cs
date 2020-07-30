@@ -35,7 +35,7 @@ namespace BattleControl.WebAPI
                 builder =>
                 {
                     builder.AllowAnyMethod().AllowAnyHeader()
-                        .WithOrigins("http://127.0.0.1:4200")
+                        .WithOrigins("http://127.0.0.1:4202")
                         .AllowCredentials();
                 }));
             services.AddSignalR();

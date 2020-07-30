@@ -35,7 +35,7 @@ namespace BattleControl.Client
             try
             {
                 await _hubConnection.StartAsync(stoppingToken);
-                await _hubConnection.InvokeAsync("SendMachineInfo", _clientMachineInfo, _hubConnection.ConnectionId);
+               
             }
             catch (Exception e)
             {
@@ -45,7 +45,8 @@ namespace BattleControl.Client
             }
             while (!stoppingToken.IsCancellationRequested)
             {
-                _logger.LogInformation(_clientMachineInfo.IP);
+                _logger.LogInformation(_clientMachineInfo.Name);
+                await _hubConnection.InvokeAsync("SendMachineInfo", _clientMachineInfo, _hubConnection.ConnectionId, stoppingToken);
                 await Task.Delay(10000, stoppingToken);
             }
         }
