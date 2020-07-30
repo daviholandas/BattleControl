@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BattleControl.Core.Dtos;
-using BattleControl.Core.Models;
-using BattleControl.WebAPI.Helpers;
+﻿using BattleControl.Core.Dtos;
 using BattleControl.WebAPI.Hubs;
 using BattleControl.WebAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BattleControl.WebAPI.V1.Controllers
 {
@@ -19,7 +15,6 @@ namespace BattleControl.WebAPI.V1.Controllers
     {
         private readonly IHubContext<RemoteHub, IRemoteHub> _hubContext;
         private readonly IGetClientsConnectedService _getClientsConnectedService;
-      
 
         public CommandsController(IHubContext<RemoteHub, IRemoteHub> hubContext,
             IGetClientsConnectedService getClientsConnectedService)
@@ -31,10 +26,9 @@ namespace BattleControl.WebAPI.V1.Controllers
         [HttpPost]
         public async Task<IActionResult> SendCommand(CommandDto commandDto)
         {
-            
             await _hubContext.Clients.All.SendCommand(commandDto);
 
-          return Ok();
+            return Ok();
         }
 
         [HttpGet]

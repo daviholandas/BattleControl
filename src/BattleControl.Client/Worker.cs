@@ -1,14 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using BattleControl.Client.Services;
 using BattleControl.Core.Dtos;
 using BattleControl.Core.Models;
 using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace BattleControl.Client
 {
@@ -35,12 +33,11 @@ namespace BattleControl.Client
             try
             {
                 await _hubConnection.StartAsync(stoppingToken);
-               
             }
             catch (Exception e)
             {
                 _logger.LogInformation(e.Message);
-               
+
                 throw;
             }
             while (!stoppingToken.IsCancellationRequested)
@@ -58,9 +55,8 @@ namespace BattleControl.Client
                 _logger.LogInformation($"{command.Argument}");
                 await _hubConnection.InvokeAsync("Receive", await _commandService.ExecuteCommand(command));
             });
-           
+
             await Task.CompletedTask;
         }
-
     }
 }

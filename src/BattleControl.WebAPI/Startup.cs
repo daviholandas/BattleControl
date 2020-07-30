@@ -1,17 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BattleControl.Core.Interfaces;
 using BattleControl.WebAPI.Config;
 using BattleControl.WebAPI.Hubs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace BattleControl.WebAPI
 {
@@ -30,7 +23,7 @@ namespace BattleControl.WebAPI
             services.AddControllers();
             services.ConfigVersioningApi();
             services.IoC();
-            
+
             services.AddCors(options => options.AddPolicy("CorsPolicy",
                 builder =>
                 {

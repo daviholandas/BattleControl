@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid mt-4" >
+  <div class="row">
+    <div >
+    <div class="col-lg">
+      <div class="card" style="width: 25rem;">
+        <div class="card-header">
+          <h3>Cliente Conectado</h3>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">HostName: {{machineClientInformation?.name}}</li>
+          <li class="list-group-item">IP: {{machineClientInformation?.ip}}</li>
+          <li class="list-group-item">Versão O.S: {{machineClientInformation?.osVersion}}</li>
+          <li class="list-group-item">Anti-Virus: {{machineClientInformation?.antiVirusName}}</li>
+          <li class="list-group-item">Versão Dotnet: {{machineClientInformation?.dotnetVersion}}</li>
+          <li class="list-group-item">HD's: Tamanho: {{machineClientInformation?.hardDiskInfo["C-TotalSize"] /1024}} MB | Livre: {{machineClientInformation?.hardDiskInfo["C-FreeSpace"] /1024}} MB</li>
+        </ul>
+      </div>
+    </div>
+   
+  </div>
+  <div class="col-lg">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Comando:</span>
+      </div>
+      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="command.argument">
+    </div>
+    {{response}}
+  </div>
+  <div class="col-lg">
+    <button type="button" class="btn btn-primary" (click)="sendInputCommand()" >
+      Enviar Comando
+    </button>
+  </div>
+  </div>
+</div>

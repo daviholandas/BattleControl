@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BattleControl.Core.Dtos;
-using BattleControl.Core.Interfaces;
+﻿using BattleControl.Core.Dtos;
 using BattleControl.Core.Models;
-using BattleControl.WebAPI.Helpers;
 using BattleControl.WebAPI.Services;
 using Microsoft.AspNetCore.SignalR;
+using System.Threading.Tasks;
 
 namespace BattleControl.WebAPI.Hubs
 {
@@ -30,7 +25,7 @@ namespace BattleControl.WebAPI.Hubs
 
         public async Task SendMachineInfo(ClientMachineInfo clientMachineInfo, string user)
             => await Clients.All.SendInfoClientMachine(clientMachineInfo, user);
-        
+
         public override Task OnConnectedAsync()
         {
             _getClientsConnectedService.AddIdClientToList(Context.ConnectionId);
